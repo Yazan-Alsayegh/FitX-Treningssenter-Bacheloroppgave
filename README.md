@@ -4,9 +4,10 @@ Et moderne bookingsystem utviklet med React og Firebase, designet for å adminis
 
 ![image](https://github.com/user-attachments/assets/2e345796-550f-4881-8d72-ae99d86a3ea5)
 
-![image](https://github.com/user-attachments/assets/1a222a62-5b05-4fc9-af6b-14445b692873)
+![image](https://github.com/user-attachments/assets/69570c18-e620-4bbf-99ff-c0ff779f44d0)
 
-![image](https://github.com/user-attachments/assets/0cee8b85-86b7-49fb-a0ee-1e53f65a400f)
+![image](https://github.com/user-attachments/assets/a043e874-8756-4547-baa1-d787d6b945b6)
+![image](https://github.com/user-attachments/assets/3177af56-8ecd-499c-b86e-571fb3bc4d9c)
 
 
 
