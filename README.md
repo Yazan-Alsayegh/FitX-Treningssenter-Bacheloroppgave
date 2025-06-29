@@ -1,6 +1,7 @@
 ## FitX Treningssenter
 
 Et moderne bookingsystem utviklet med React og Firebase, designet for å administrere treningsøkter, medlemskap og brukerinteraksjon. Systemet tilbyr sanntids booking, AI-chatbot assistanse og personaliserte treningsanbefalinger gjennom en responsiv webapplikasjon.
+
 ![image](https://github.com/user-attachments/assets/2e345796-550f-4881-8d72-ae99d86a3ea5)
 ![image](https://github.com/user-attachments/assets/1a222a62-5b05-4fc9-af6b-14445b692873)
 ![image](https://github.com/user-attachments/assets/0cee8b85-86b7-49fb-a0ee-1e53f65a400f)
