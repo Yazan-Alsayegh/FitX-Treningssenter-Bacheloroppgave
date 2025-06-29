@@ -1,4 +1,15 @@
+:root {
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+  --red:#e10000;
+  --text-color: #000000;
+  --text-color-light: #ffffff;
+  --navbar-footer: #121212;
+  --cards-background: #F0F4F8;
+}
+
 body {
+  background-color: #2A2A2A;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

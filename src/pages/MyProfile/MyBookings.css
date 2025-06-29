@@ -1,0 +1,634 @@
+/* Authors: 7100, 7094 */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+.MyBookings-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .MyBookings-header {
+    background: var(--navbar-footer);
+    padding: 2.5rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .MyBookings-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-color-light);
+    text-transform: uppercase;
+  }
+  
+  .MyBookings-header p {
+    font-size: 1.25rem;
+    color: var(--text-color-light);
+    font-weight: 400;
+    padding: 1.5rem;
+  }
+  
+  .MyBookings-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 90%;
+    flex: 1;
+    background-color: var(--cards-background);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    margin-bottom: 5rem;
+    margin-top: 1rem;
+  }
+  
+  .MyBookings-section {
+    padding-top: 2rem;
+  }
+  
+  .MyBookings-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+  }
+  
+  .MyBookings-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--red);
+    margin: 12px auto 0;
+  }
+  
+  .MyBookings-card {
+    background-color: var(--cards-background);
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+    border-bottom: 4px solid transparent;
+  }
+  
+  .MyBookings-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    border-bottom: 4px solid var(--red);
+  }
+  
+  .MyBookings-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .MyBookings-card-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color-dark);
+    margin: 0;
+  }
+  
+  .MyBookings-edit-button, 
+  .MyBookings-save-button, 
+  .MyBookings-cancel-button,
+  .MyBookings-delete-button,
+  .MyBookings-booking-edit-button {
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-height: 44px;
+  }
+  
+  .MyBookings-edit-button,
+  .MyBookings-booking-edit-button {
+    background-color: var(--red);
+    color: var(--text-color-light);
+    border: 1px solid var(--red);
+  }
+  
+  .MyBookings-edit-button:hover,
+  .MyBookings-booking-edit-button:hover {
+    background-color: var(--red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.15);
+  }
+  
+  .MyBookings-form-actions,
+  .MyBookings-booking-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .MyBookings-save-button {
+    background-color: var(--red);
+    color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .MyBookings-save-button:hover {
+    background-color: var(--red);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 15px rgba(255, 77, 77, 0.3);
+  }
+  
+  .MyBookings-save-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.081);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .MyBookings-save-button:hover::after {
+    transform: translateX(0);
+  }
+  
+  .MyBookings-save-button:disabled {
+    background-color: #e0e0e0;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .MyBookings-cancel-button {
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .MyBookings-cancel-button:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .MyBookings-delete-button {
+    background-color: #e53935;
+    color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .MyBookings-delete-button:hover {
+    background-color: #f44336;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 15px rgba(229, 57, 53, 0.3);
+  }
+  
+  .MyBookings-delete-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .MyBookings-delete-button:hover::after {
+    transform: translateX(0);
+  }
+  
+  .MyBookings-loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: var(--red);
+  }
+  
+  .MyBookings-loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid var(--red);
+    width: 40px;
+    height: 40px;
+    animation: MyBookings-spin 1s linear infinite;
+    margin-bottom: 1rem;
+  }
+  
+  @keyframes MyBookings-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .MyBookings-bookings-container {
+    padding: 1.5rem;
+  }
+  
+  .MyBookings-bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .MyBookings-booking-item {
+    background-color: var(--cards-background);
+    border-radius: 15px;
+    padding: 1.25rem;
+    border-left: 4px solid var(--red);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  }
+  
+  .MyBookings-booking-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .MyBookings-booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .MyBookings-booking-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color-dark);
+    margin: 0.5rem 0 0 0;
+  }
+  
+  .MyBookings-booking-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50px;
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+  }
+  
+  .MyBookings-booking-badge.private {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--red);
+    color: var(--red);
+  }
+  
+  .MyBookings-booking-badge.class {
+    background-color: var(--secondary-color);
+    border: 2px solid rgb(10, 99, 172);
+    color: #000000;
+  }
+  
+  .MyBookings-session-type {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+    background-color: var(--secondary-color);
+    color: var(--red);
+    border: 2px solid var(--red);
+  }
+  
+  .MyBookings-session-type.private {
+    background-color: var(--secondary-color);
+    color: var(--red);
+    border: 2px solid var(--red);
+  }
+  
+  .MyBookings-session-type.class {
+    background-color: var(--secondary-color);
+    color: #000000;
+    border-color: rgb(10, 99, 172);
+  }
+  
+  .MyBookings-booking-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .MyBookings-booking-detail {
+    display: flex;
+    align-items: center;
+    color: var(--text-color-dark);
+    font-size: 0.95rem;
+  }
+  
+  .MyBookings-detail-icon {
+    margin-right: 0.75rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+  }
+  
+  .MyBookings-booking-actions {
+    background-color: rgba(255, 77, 77, 0.05);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+    border: 1px dashed rgba(255, 77, 77, 0.3);
+  }
+  
+  .MyBookings-booking-warning {
+    color: #e53935;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .MyBookings-no-bookings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-color-dark);
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .MyBookings-no-bookings p:first-child {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-color-dark);
+  }
+  
+  .MyBookings-booking-item {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .MyBookings-booking-item:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .MyBookings-booking-item:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  
+  .MyBookings-booking-item:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  
+  .MyBookings-page ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .MyBookings-page ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .MyBookings-page ::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+  }
+  
+  .MyBookings-page ::-webkit-scrollbar-thumb:hover {
+    background: var(--red);
+  }
+  
+  @media (max-width: 768px) {
+    .MyBookings-container {
+      padding: 0 1rem;
+    }
+    
+    .MyBookings-header h1 {
+      font-size: 2.75rem;
+    }
+    
+    .MyBookings-header p {
+      font-size: 1rem;
+    }
+    
+    .MyBookings-card-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .MyBookings-form-actions,
+    .MyBookings-booking-buttons {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .MyBookings-form-actions button,
+    .MyBookings-booking-buttons button {
+      width: 100%;
+    }
+    
+    .MyBookings-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .MyBookings-card {
+      margin-bottom: 1.5rem;
+    }
+    
+    .MyBookings-booking-header {
+      flex-direction: column;
+    }
+    
+    .MyBookings-booking-edit-button {
+      margin-top: 1rem;
+      align-self: flex-start;
+    }
+    
+    .MyBookings-booking-details {
+      grid-template-columns: 1fr;
+    }
+
+    .MyBookings-edit-button, 
+    .MyBookings-save-button, 
+    .MyBookings-cancel-button,
+    .MyBookings-delete-button,
+    .MyBookings-booking-edit-button {
+      padding: 0.55rem 0.9rem;
+      font-size: 0.9rem;
+      min-height: 42px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .MyBookings-header {
+      padding: 2rem 0;
+      margin-bottom: 1.5rem;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    
+    .MyBookings-header h1 {
+      font-size: 2.5rem;
+    }
+    
+    .MyBookings-section h2 {
+      font-size: 1.5rem;
+    }
+    
+    .MyBookings-card-header h3 {
+      font-size: 1.15rem;
+    }
+    
+    .MyBookings-booking-title {
+      font-size: 1.1rem;
+    }
+    
+    .MyBookings-booking-detail {
+      font-size: 0.9rem;
+    }
+
+    .MyBookings-edit-button, 
+    .MyBookings-save-button, 
+    .MyBookings-cancel-button,
+    .MyBookings-delete-button,
+    .MyBookings-booking-edit-button {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.875rem;
+      min-height: 40px;
+      border-radius: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .MyBookings-header h1 {
+      font-size: 2.25rem;
+    }
+    
+    .MyBookings-header p {
+      font-size: 0.9rem;
+    }
+    
+    .MyBookings-card-header h3 {
+      font-size: 1.1rem;
+    }
+    
+    .MyBookings-booking-badge {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+    }
+    
+    .MyBookings-booking-title {
+      font-size: 1rem;
+    }
+    
+    .MyBookings-booking-warning {
+      font-size: 0.8rem;
+    }
+
+    .MyBookings-edit-button, 
+    .MyBookings-save-button, 
+    .MyBookings-cancel-button,
+    .MyBookings-delete-button,
+    .MyBookings-booking-edit-button {
+      padding: 0.45rem 0.7rem;
+      font-size: 0.8rem;
+      min-height: 38px;
+      border-radius: 6px;
+      letter-spacing: 0.3px;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .MyBookings-header {
+      padding: 1.75rem 0;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+    
+    .MyBookings-header h1 {
+      font-size: 2rem;
+    }
+    
+    .MyBookings-header p {
+      font-size: 0.85rem;
+    }
+    
+    .MyBookings-container {
+      padding: 0 0.75rem;
+    }
+    
+    .MyBookings-section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .MyBookings-card-header {
+      padding: 1.25rem 1rem;
+    }
+    
+    .MyBookings-card-header h3 {
+      font-size: 1rem;
+    }
+    
+    .MyBookings-bookings-container {
+      padding: 1.25rem 1rem;
+    }
+    
+    .MyBookings-booking-item {
+      padding: 1rem;
+    }
+    
+    .MyBookings-booking-actions {
+      padding: 0.75rem;
+    }
+
+    .MyBookings-edit-button, 
+    .MyBookings-save-button, 
+    .MyBookings-cancel-button,
+    .MyBookings-delete-button,
+    .MyBookings-booking-edit-button {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.75rem;
+      min-height: 36px;
+      border-radius: 5px;
+      letter-spacing: 0.2px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .MyBookings-edit-button, 
+    .MyBookings-save-button, 
+    .MyBookings-cancel-button,
+    .MyBookings-delete-button,
+    .MyBookings-booking-edit-button {
+      padding: 0.35rem 0.5rem;
+      font-size: 0.7rem;
+      min-height: 34px;
+      border-radius: 4px;
+      letter-spacing: 0.1px;
+    }
+  }

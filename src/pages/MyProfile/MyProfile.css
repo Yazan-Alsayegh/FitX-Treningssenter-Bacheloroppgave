@@ -1,0 +1,753 @@
+/* Authors: 7100, 7099, 7144 */
+
+.MyProfile-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.MyProfile-header {
+  background: var(--navbar-footer);
+  padding: 2.5rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.MyProfile-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-color-light);
+  text-transform: uppercase;
+}
+
+.MyProfile-header p {
+  font-size: 1.25rem;
+  color: var(--text-color-light);
+  font-weight: 400;
+  padding: 1.5rem;
+}
+
+.MyProfile-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 90%;
+  flex: 1;
+  background-color: var(--cards-background);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+}
+
+.MyProfile-section {
+  padding-top: 2rem;
+}
+
+.MyProfile-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+  position: relative;
+}
+
+.MyProfile-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--red);
+  margin: 12px auto 0;
+}
+
+.MyProfile-card {
+  background-color: var(--cards-background);
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s ease;
+  border-bottom: 4px solid transparent;
+}
+
+.MyProfile-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  border-bottom: 4px solid var(--red);
+}
+
+.MyProfile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.MyProfile-card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color-dark);
+  margin: 0;
+}
+
+.MyProfile-info-display {
+  padding: 1.5rem;
+}
+
+.MyProfile-info-row {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.MyProfile-info-row:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.MyProfile-info-label {
+  font-weight: 600;
+  color: #555;
+  margin-right: 0.5rem;
+}
+
+.MyProfile-info-value {
+  color: var(--primary-color);
+}
+
+.MyProfile-info-value.highlight {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.MyProfile-billing-info {
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.MyProfile-plan-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.MyProfile-payment-reminder {
+  display: flex;
+  align-items: flex-start;
+  background-color: rgba(255, 77, 77, 0.1);
+  border-left: 4px solid var(--red);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.MyProfile-reminder-icon {
+  color: var(--red);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.MyProfile-reminder-text p {
+  margin: 0.25rem 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.MyProfile-reminder-text p:first-child {
+  font-weight: 600;
+}
+
+.MyProfile-edit-form {
+  padding: 1.5rem;
+}
+
+.MyProfile-form-group {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.MyProfile-form-group input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: 50px;
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  color: var(--primary-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.MyProfile-form-group input::placeholder {
+  color: transparent; 
+}
+
+.MyProfile-form-group label {
+  position: absolute;
+  left: 1rem;
+  top: 0.875rem;
+  font-size: 0.85rem;
+  color: #777;
+  transition: all 0.3s ease;
+  pointer-events: none; 
+}
+
+.MyProfile-form-group input:not(:focus):not(.has-value) + label {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.MyProfile-form-group input:focus + label,
+.MyProfile-form-group input.has-value + label {
+  top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--red);
+}
+
+.MyProfile-form-group input:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.1);
+}
+
+.MyProfile-plan-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.MyProfile-plan-option {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.85rem;
+  border-radius: 12px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.MyProfile-plan-option:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.MyProfile-plan-option.selected {
+  background-color: rgba(255, 77, 77, 0.1);
+  border-color: var(--red);
+}
+
+.MyProfile-plan-radio {
+  margin-right: 0.75rem;
+  padding-top: 0.25rem;
+}
+
+.MyProfile-radio-input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #333333;
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.MyProfile-radio-input:checked {
+  border-color: var(--red);
+}
+
+.MyProfile-radio-input:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--red);
+}
+
+.MyProfile-plan-details {
+  flex: 1;
+}
+
+.MyProfile-plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.MyProfile-plan-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.MyProfile-plan-price {
+  color: var(--red);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.MyProfile-plan-features {
+  list-style-type: none;
+  color: #666;
+  font-size: 0.9rem;
+  padding-left: 0;
+}
+
+.MyProfile-plan-features li {
+  padding: 0.3rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.MyProfile-plan-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-weight: bold;
+}
+
+.MyProfile-current-plan {
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.MyProfile-edit-button, 
+.MyProfile-save-button, 
+.MyProfile-cancel-button {
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-height: 44px;
+}
+
+.MyProfile-edit-button {
+  background-color: var(--red);
+  color: var(--text-color-light);
+  border: 1px solid var(--red);
+}
+
+.MyProfile-edit-button:hover {
+  background-color: var(--red);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 77, 77, 0.15);
+}
+
+.MyProfile-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.MyProfile-save-button {
+  background-color: var(--red);
+  color: var(--secondary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.MyProfile-save-button:hover {
+  background-color: var(--red);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 15px rgba(255, 77, 77, 0.3);
+}
+
+.MyProfile-save-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.081);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.MyProfile-save-button:hover::after {
+  transform: translateX(0);
+}
+
+.MyProfile-save-button:disabled {
+  background-color: #e0e0e0;
+  color: #888;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.MyProfile-cancel-button {
+  background-color: transparent;
+  color: #000000;
+  border: 1px solid #e0e0e0;
+}
+
+.MyProfile-cancel-button:hover {
+  background-color: #f5f5f5;
+}
+
+.MyProfile-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: var(--red);
+}
+
+.MyProfile-loading-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid var(--red);
+  width: 40px;
+  height: 40px;
+  animation: MyProfile-spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes MyProfile-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.MyProfile-page ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.MyProfile-page ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.MyProfile-page ::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.MyProfile-page ::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+}
+
+
+@media (max-width: 768px) {
+  .MyProfile-container {
+    padding: 0 1rem;
+  }
+  
+  .MyProfile-header h1 {
+    font-size: 2.75rem;
+  }
+  
+  .MyProfile-header p {
+    font-size: 1rem;
+  }
+  
+  .MyProfile-card-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .MyProfile-form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .MyProfile-form-actions button {
+    width: 100%;
+  }
+  
+  .MyProfile-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .MyProfile-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .MyProfile-edit-button, 
+  .MyProfile-save-button, 
+  .MyProfile-cancel-button {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.9rem;
+    min-height: 42px;
+  }
+  
+  .MyProfile-payment-reminder {
+    flex-direction: column;
+  }
+  
+  .MyProfile-reminder-icon {
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .MyProfile-header {
+    padding: 2rem 0;
+    margin-bottom: 1.5rem;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  .MyProfile-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .MyProfile-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .MyProfile-card-header h3 {
+    font-size: 1.15rem;
+  }
+  
+  .MyProfile-form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .MyProfile-form-group input {
+    padding: 1.4rem 0.875rem 0.5rem;
+  }
+  
+  .MyProfile-plan-option {
+    padding: 0.65rem;
+  }
+  
+  .MyProfile-plan-features li {
+    font-size: 0.85rem;
+  }
+  
+  .MyProfile-edit-button, 
+  .MyProfile-save-button, 
+  .MyProfile-cancel-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.875rem;
+    min-height: 40px;
+    border-radius: 8px;
+  }
+  
+  .MyProfile-info-row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .MyProfile-info-label {
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .MyProfile-header h1 {
+    font-size: 2.25rem;
+  }
+  
+  .MyProfile-header p {
+    font-size: 0.9rem;
+  }
+  
+  .MyProfile-plan-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .MyProfile-card-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .MyProfile-form-group label {
+    font-size: 0.9rem;
+  }
+  
+  .MyProfile-form-group input:focus + label,
+  .MyProfile-form-group input.has-value + label {
+    font-size: 0.7rem;
+  }
+  
+  .MyProfile-plan-option {
+    padding: 0.6rem;
+  }
+  
+  .MyProfile-plan-name {
+    font-size: 1rem;
+  }
+  
+  .MyProfile-plan-price {
+    font-size: 0.9rem;
+  }
+  
+  .MyProfile-plan-features li {
+    font-size: 0.8rem;
+    padding-left: 1.2rem;
+  }
+  
+  .MyProfile-plan-features li::before {
+    font-size: 0.9rem;
+  }
+  
+  .MyProfile-info-label,
+  .MyProfile-info-value {
+    font-size: 0.9rem;
+  }
+  
+  .MyProfile-info-row {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+  }
+  
+  .MyProfile-current-plan {
+    padding: 1rem;
+  }
+
+  .MyProfile-edit-button, 
+  .MyProfile-save-button, 
+  .MyProfile-cancel-button {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.8rem;
+    min-height: 38px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+  }
+  
+  .MyProfile-billing-info {
+    padding: 1rem;
+  }
+  
+  .MyProfile-payment-reminder {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .MyProfile-header {
+    padding: 1.75rem 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  .MyProfile-header h1 {
+    font-size: 2rem;
+  }
+  
+  .MyProfile-header p {
+    font-size: 0.85rem;
+  }
+  
+  .MyProfile-container {
+    padding: 0 0.75rem;
+  }
+  
+  .MyProfile-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .MyProfile-card-header {
+    padding: 1.25rem 1rem;
+  }
+  
+  .MyProfile-card-header h3 {
+    font-size: 1rem;
+  }
+  
+  .MyProfile-edit-form,
+  .MyProfile-info-display {
+    padding: 1.25rem 1rem;
+  }
+  
+  .MyProfile-form-group input {
+    padding: 1.3rem 0.75rem 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .MyProfile-plan-radio {
+    margin-right: 0.5rem;
+  }
+  
+  .MyProfile-radio-input {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .MyProfile-radio-input:checked::after {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .MyProfile-form-actions {
+    margin-top: 1.25rem;
+    gap: 0.6rem;
+  }
+  
+  .MyProfile-info-label,
+  .MyProfile-info-value {
+    font-size: 0.85rem;
+  }
+
+  .MyProfile-edit-button, 
+  .MyProfile-save-button, 
+  .MyProfile-cancel-button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+    min-height: 36px;
+    border-radius: 5px;
+    letter-spacing: 0.2px;
+  }
+}
+
+@media (max-width: 320px) {
+  .MyProfile-edit-button, 
+  .MyProfile-save-button, 
+  .MyProfile-cancel-button {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.7rem;
+    min-height: 34px;
+    border-radius: 4px;
+    letter-spacing: 0.1px;
+  }
+}

@@ -1,0 +1,709 @@
+/* Authors: 7100, 7094, 7144 */
+
+@font-face {
+  font-family: 'gym-icons';
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-solid-900.woff2') format('woff2');
+}
+
+body {
+  padding-top: 5rem;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--navbar-footer);
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo a {
+  text-decoration: none;
+  display: block;
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.fit-text {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.x-text {
+  color: #ff4d4d;
+  font-size: 42px;
+  font-weight: 800;
+  margin-left: 4px;
+  position: relative;
+  cursor: pointer;
+  transform: skewX(-10deg);
+  display: inline-block;
+  transition: all 0.4s ease;
+  text-shadow: 0 0 10px rgb(183, 8, 8);
+}
+
+.logo-text:hover .x-text {
+  transform: skewX(-15deg) translateY(-5px);
+  text-shadow: 0 0 15px rgba(157, 66, 66, 0.7), 0 0 25px rgba(157, 66, 66, 0.7);
+  animation: pulse 1.4s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 10px rgba(157, 66, 66, 0.7);
+    transform: skewX(-15deg) translateY(-5px);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(157, 66, 66, 0.7), 0 0 30px rgba(157, 66, 66, 0.7);
+    transform: skewX(-12deg) translateY(-8px);
+  }
+}
+
+.x-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 2s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.logo-text:hover .x-text::after {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.logo-text:hover .fit-text {
+  letter-spacing: 1px;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.desktop-nav a {
+  color: #ffffff;
+  margin-left: 50px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 4px 0;
+}
+
+.desktop-nav a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--red);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  border-radius: 2px;
+}
+
+.desktop-nav a:hover {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.desktop-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.login-button, .sign-up-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background-color: var(--red);
+  color: var(--text-color-light);
+  border: 1px solid var(--red);
+}
+
+.login-button:hover, .sign-up-button:hover {
+  background-color: #ff4d4de4;
+}
+
+.user-profile {
+  position: relative;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  border: 2px solid var(--red);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image i {
+  font-size: 22px;
+  color: white;
+}
+
+.icon-user:before {
+  content: "\f007"; 
+  font-family: 'gym-icons';
+  font-weight: 700;
+  font-style: normal;
+}
+
+.profile-container:hover .profile-image {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.6);
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #1a1a1a;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+  z-index: 1010;
+  overflow: hidden;
+  animation: dropdownAppear 0.3s ease;
+}
+
+@keyframes dropdownAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+  text-align: left;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background-color: #333333;
+  color: var(--red);
+}
+
+.dropdown-menu button {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f44336;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+.mobile-menu-button button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.user-greeting {
+  font-weight: 600;
+  color: var(--text-color-light);
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #121212;
+  overflow-y: auto;
+  z-index: 1001;
+}
+
+.mobile-nav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+}
+
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-logo {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-top-gym-status .gym-status {
+  padding: 8px 15px;
+  font-size: 14px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.mobile-close-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.mobile-user-profile {
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-info-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+
+.profile-image-mobile {
+  width: 60px;
+  height: 60px;
+  min-width: 60px; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  border: 2px solid var(--red);
+}
+
+.profile-image-mobile i {
+  font-size: 30px;
+  color: white;
+}
+
+.mobile-user-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.user-greeting-mobile {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color-light);
+  margin-bottom: 8px;
+}
+
+.mobile-dropdown-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.mobile-dropdown-links a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.mobile-dropdown-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--red);
+  left: 0;
+  bottom: -4px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-links a:hover {
+  color: var(--red);
+}
+
+.mobile-dropdown-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.mobile-nav-links a {
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.mobile-nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  bottom: -1px;
+  left: 25%;
+  background-color: var(--red);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.mobile-nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.mobile-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  margin-top: 40px;
+}
+
+.bottom-auth-buttons {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.mobile-auth-buttons .login-button,
+.mobile-auth-buttons .sign-up-button,
+.mobile-auth-buttons .logout-button {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 14px 15px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .desktop-nav a {
+    font-size: 16px;
+    margin: 0 5px;
+  }
+  
+  .desktop-nav{
+    gap: 25px;
+  }
+
+  .login-button, .sign-up-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .desktop-nav {
+    gap: 20px;
+  }
+  
+  .desktop-nav a {
+    font-size: 15px;
+    margin: 0 4px;
+  }
+  
+  .login-button, .sign-up-button {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+  
+  .auth-buttons {
+    gap: 10px;
+  }
+  
+  .profile-image {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .profile-image i {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .desktop-nav, .auth-buttons {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+  
+  .mobile-auth-buttons .login-button,
+  .mobile-auth-buttons .sign-up-button,
+  .mobile-auth-buttons .logout-button {
+    max-width: 250px;
+    padding: 12px 15px;
+    margin-bottom: 1.8rem;
+
+  }
+  
+  .mobile-top-gym-status .gym-status {
+    min-width: 110px;
+    font-size: 13px;
+    padding: 7px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fit-text {
+    font-size: 38px; 
+  }
+  
+  .x-text {
+    font-size: 44px; 
+  }
+  
+  .profile-image-mobile {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+  }
+  
+  .profile-image-mobile i {
+    font-size: 26px;
+  }
+  
+  .user-greeting-mobile {
+    font-size: 16px;
+  }
+  
+  .mobile-dropdown-links a {
+    font-size: 14px;
+  }
+  
+  .mobile-nav-links a {
+    padding: 12px 0;
+    font-size: 15px;
+  }
+  
+  .mobile-auth-buttons .login-button,
+  .mobile-auth-buttons .sign-up-button,
+  .mobile-auth-buttons .logout-button {
+    max-width: 200px;
+    padding: 10px 15px;
+    font-size: 15px;
+    
+  }
+  
+  .mobile-top-gym-status .gym-status {
+    min-width: 100px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .mobile-logo .fit-text {
+    font-size: 24px;
+  }
+  
+  .mobile-logo .x-text {
+    font-size: 28px;
+  }
+  
+  .mobile-top-gym-status .gym-status {
+    min-width: 90px;
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+  
+  .mobile-close-button {
+    font-size: 20px;
+  }
+  
+  .mobile-dropdown-links {
+    gap: 10px;
+  }
+  
+  .mobile-dropdown-links a {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 350px) {
+  .profile-image-mobile {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+  }
+  
+  .profile-image-mobile i {
+    font-size: 22px;
+  }
+  
+  .user-greeting-mobile {
+    font-size: 14px;
+  }
+  
+  .mobile-dropdown-links {
+    gap: 8px;
+  }
+  
+  .mobile-dropdown-links a {
+    font-size: 12px;
+  }
+  
+  .mobile-nav-links a {
+    font-size: 14px;
+  }
+  
+  .mobile-auth-buttons .login-button,
+  .mobile-auth-buttons .sign-up-button,
+  .mobile-auth-buttons .logout-button {
+    max-width: 180px;
+    padding: 12px;
+    font-size: 14px;
+    
+  }
+  
+  .mobile-top-gym-status .gym-status {
+    min-width: 80px;
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+}
